@@ -10,5 +10,9 @@
     "authentication"
   ],
   "author": "Chanakya Garg",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^5.9.29",
+    "nodemon": "^2.0.4"
+  }
 }
