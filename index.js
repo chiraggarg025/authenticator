@@ -1,4 +1,5 @@
 const express = require('express');
+const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
 const expressLayouts = require('express-ejs-layouts');
@@ -8,15 +9,20 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo')(session);
-
-
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
+app.use(express.urlencoded());
+// used to make changes to cookies 
+app.use(cookieParser());
+//setting location for static files
+app.use(express.static('./assets'));
 // set up the view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
 // mongo store is used to store session cookie in the dp
 app.use(session({
-    name: 'codeial',
+    name: 'authenticate',
     // TODO change the secret before deployment in production mode
     secret: 'blahsomething',
     saveUninitialized: false,
@@ -42,12 +48,6 @@ app.use(flash());
 app.use(customMware.setFlash);
 // use express router
 app.use('/', require('./routes'));
-
-
-
-app.get('/',function(req,res){
-    return res.end('<h1>HI</h1>');
-})
 
 app.listen(port,function(err){
     if(err){
