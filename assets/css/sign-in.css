@@ -1,8 +1,9 @@
 body{
     background-image: url(../images/sign_in.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
+    background-position:center;
     background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 #box{
     margin-top: 5%;
