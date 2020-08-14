@@ -1,8 +1,21 @@
-<h1>Sign In</h1>
-
-<form action="/users/create-session" method="POST">
-<input type="email" placeholder="Your Email" name="email"required>
-<input type="password" placeholder="Password" name="password" required>
-<input type="submit" value="Sign In">
-
-</form>
+<link rel="stylesheet" href="/css/sign-in.css">
+<div class="container" id="box">
+    <h1>Sign In</h1>
+    <hr style="color:white">
+    <form action="/users/create-session" method="POST">
+    
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user"></i></span>
+            </div>
+            <input type="email" class="form-control" name="email" placeholder="Enter your email" aria-label="Username" aria-describedby="basic-addon1" required>
+        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-key"></i></span>
+            </div>
+            <input type="password" class="form-control" name="password" placeholder="Enter your password" aria-label="Password" aria-describedby="basic-addon1" required>
+        </div>
+        <input type="submit" class="btn btn-primary btn-lg" value="Sign In!">
+    </form>
+</div>
