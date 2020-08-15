@@ -2,6 +2,7 @@ const { model } = require("mongoose");
 // rendering the user profile page
 const User = require('../models/user');
 const { use } = require("../routes");
+const { localsName } = require("ejs");
 // 
 // rendering the sign in page
 module.exports.SignIn=function(req,res){
@@ -61,4 +62,41 @@ module.exports.destroySession = function(req,res){
     req.logout();
     req.flash('success','You Have Logged out');
     return res.redirect('/');
+}
+// update password
+
+module.exports.updatePasswordForm = function(req,res){
+    return res.render('update_password',{
+        title:'Authenticator | update'
+    })
+}
+
+module.exports.updatePassword = function(req,res){
+    console.log(req.params.id)
+    console.log(req.body);
+    if(req.body.password!=req.body.confirmPassword){
+        req.flash('error','Passwords don\'t  match');
+        return res.redirect('back');
+    }
+    User.findById(req.params.id,function(err,user){
+        if(err){
+            console.log(`Error in finding user :${err}`);
+            return;
+        }
+        if(user.password!=req.body.oldPassword){
+            req.flash('error','Invalid Password');
+            return res.redirect('back');
+        }
+        let newUser = user;
+        newUser.password=req.body.password;
+        User.findByIdAndUpdate(req.params.id,newUser,function(err,UpdatedUser){
+            if(err){
+                console.log(`Error in updating the user:${err}`);
+                return;
+            }
+            req.flash('success','Password Updated');
+            return res.redirect('back');
+        })
+
+    })
 }

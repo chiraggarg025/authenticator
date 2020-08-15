@@ -20,7 +20,9 @@ router.get('/sign-out',usersController.destroySession);
 // google sign in routes
 router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
 router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/users/sign-in'}),usersController.createSession)
-
+// update passwrod
+router.get('/update-password',usersController.updatePasswordForm);
+router.post('/update/:id',usersController.updatePassword);
 
 // export router
 
