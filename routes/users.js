@@ -21,8 +21,8 @@ router.get('/sign-out',usersController.destroySession);
 router.get('/auth/google',passport.authenticate('google',{scope:['profile','email']}));
 router.get('/auth/google/callback',passport.authenticate('google',{failureRedirect:'/users/sign-in'}),usersController.createSession)
 // update passwrod
-router.get('/update-password',usersController.updatePasswordForm);
-router.post('/update/:id',usersController.updatePassword);
+router.get('/update-password',passport.checkAuthentication,usersController.updatePasswordForm);
+router.post('/update/:id',passport.checkAuthentication,usersController.updatePassword);
 
 // export router
 
