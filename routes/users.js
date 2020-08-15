@@ -24,6 +24,10 @@ router.get('/auth/google/callback',passport.authenticate('google',{failureRedire
 router.get('/update-password',passport.checkAuthentication,usersController.updatePasswordForm);
 router.post('/update/:id',passport.checkAuthentication,usersController.updatePassword);
 
+// forgot password
+router.get('/forgot-password',usersController.forgotPasswordForm);
+router.post('/forgot',usersController.sendPassword);
+
 // export router
 
 

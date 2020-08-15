@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
+const nodemailer = require('nodemailer');
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
 const session = require('express-session');
@@ -53,6 +54,8 @@ app.use(flash());
 app.use(customMware.setFlash);
 // use express router
 app.use('/', require('./routes'));
+
+
 
 app.listen(port,function(err){
     if(err){
