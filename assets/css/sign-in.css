@@ -6,7 +6,7 @@ body{
     background-repeat: no-repeat;
 }
 #box{
-    margin-top: 5%;
+    margin-top: 3%;
     background-color: rgba(0, 0, 0, 0.7);
     color:white;
     text-align: center;
@@ -15,4 +15,8 @@ body{
 }
 #box h1{
     font-weight: 700;
+}
+hr{
+    border: 1px solid gray;
+    background-color: gray;
 }

@@ -48,7 +48,7 @@ User.findOne({email:req.body.email},function(err,user){
 module.exports.createSession = function(req,res){
     req.flash('success','Logged in Successfully');
 
-    return res.redirect('/');
+    return res.redirect('/users/profile');
 }
 // show user profile
 module.exports.profile = function(req,res){

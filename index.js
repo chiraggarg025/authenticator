@@ -8,6 +8,7 @@ const session = require('express-session');
 // requiring passport and strategy
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
+const googlePassport = require('./config/passport-google-oauth2-strategy');
 const MongoStore = require('connect-mongo')(session);
 const flash = require('connect-flash');
 const customMware = require('./config/middleware');
