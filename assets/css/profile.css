@@ -5,6 +5,7 @@ body{
     background-attachment: fixed;
     background-repeat: no-repeat;
 }
+/* box containing form */
 #box{
     margin-top: 7%;
     background-color: rgba(0, 0, 0, 0.7);

@@ -8,7 +8,7 @@ passport.use(new googleStrategy({
         clientSecret:"oFhtDo4Y8Ruumup6a7eKfICS",
         callbackURL:"http://localhost:8000/users/auth/google/callback"
     },
-
+    // accessing credentials from google
     function(accessToken,refreshToken,profile,done){
         // find a user
         User.findOne({email:profile.emails[0].value}).exec(function(err,user){

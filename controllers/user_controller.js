@@ -110,7 +110,7 @@ module.exports.sendPassword = function(req,res){
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-        user: 'something@gmail.com',
+        user: 'something',
         pass: 'something' // naturally, replace both with your real credentials or an application-specific password
         }
     });

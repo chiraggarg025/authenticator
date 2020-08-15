@@ -2,6 +2,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const app = express();
 const port = 8000;
+// used for sending mails
 const nodemailer = require('nodemailer');
 const expressLayouts = require('express-ejs-layouts');
 const db = require('./config/mongoose');
@@ -56,7 +57,7 @@ app.use(customMware.setFlash);
 app.use('/', require('./routes'));
 
 
-
+// listening to ports
 app.listen(port,function(err){
     if(err){
         console.log(`Error in starting the server : ${err}`);

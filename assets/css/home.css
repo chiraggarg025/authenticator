@@ -10,6 +10,7 @@ body{
 html{
     height:100%;
 }
+/*box with the fonts */
 .edit{
     text-align: center;
     color: #ecf0f1;
@@ -17,6 +18,7 @@ html{
 
 
 }
+/* welcome font */
 h1{
     margin-top: 10%;
     font-family: 'Istok Web', sans-serif;
@@ -27,6 +29,7 @@ h1{
     0px 8px 13px rgba(0,0,0,0.1),
     0px 18px 23px rgba(0,0,0,0.1);
 }
+/* slogan font */
 #textbelow{
     font-family: 'Lobster', cursive;
     font-size: 35px;
